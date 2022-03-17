@@ -24,6 +24,8 @@ public class Post {
     @Temporal(TemporalType.DATE)
     @CreationTimestamp
     private Date date;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    private Author author;
 
     public Post() {
         super();
@@ -63,6 +65,13 @@ public class Post {
         return date;
     }
 
+    public Author getAuthor(){
+        return this.author;
+    }
+
+    public void setAuthor(Author author){
+        this.author=author;
+    }
     public String getDateStr() {
         DateFormat outputFormatter = new SimpleDateFormat("MM/dd/yyyy");
         return outputFormatter.format(this.date);
