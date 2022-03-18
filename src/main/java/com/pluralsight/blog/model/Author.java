@@ -7,6 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,7 +28,7 @@ public class Author {
 
     public Author() {
         super();
-        this.posts = new ArrayList<>();
+        posts = new ArrayList<>();
     }
 
     public Author(String username, String firstname, String lastname, String password) {
@@ -90,7 +91,7 @@ public class Author {
     }
 
     public List<Post> getPosts() {
-        return null;
+        return this.posts;
     }
 
     public void addPost(Post post) {
